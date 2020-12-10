@@ -15,7 +15,19 @@ def run_first(numbers):
 def run_second(numbers):
 	target_sum = run_first(numbers)
 
-	for start_index in range(len(numbers)):
-		for end_index in range(start_index + 2, len(numbers) + 1):
-			if sum(numbers[start_index : end_index]) == target_sum:
-				return numbers[start_index] + numbers[end_index - 1]
+	running_sums = [0]
+	current_sum = 0
+	for number in numbers:
+		current_sum += number
+		running_sums.append(current_sum)
+
+	start_index = 0
+	end_index = 0
+	while True:
+		current_sum = running_sums[end_index] - running_sums[start_index]
+		if current_sum < target_sum:
+			end_index += 1
+		elif current_sum > target_sum:
+			start_index += 1
+		else:
+			return numbers[start_index] + numbers[end_index - 1]
