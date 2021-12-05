@@ -30,7 +30,7 @@ class Day4(Day):
 	def convert_input(raw_input):
 		sections = raw_input.split('\n\n')
 		rolls = [int(n) for n in sections[0].split(',')]
-		boards = [[[int(n) for n in row.split()] for row in board.split('\n') if row] for board in sections[1:]]
+		boards = [[[int(n) for n in row.split()] for row in board.splitlines()] for board in sections[1:]]
 		return {
 			'rolled_numbers': rolls,
 			'board_numbers': boards,
@@ -44,7 +44,6 @@ class Day4(Day):
 				board.mark_number(rolled_number)
 				if board.has_bingo():
 					return board.get_score()
-
 
 	@staticmethod
 	def run_second(puzzle_input):
