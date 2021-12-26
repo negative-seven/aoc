@@ -7,12 +7,12 @@ class Day(ABC):
 	def convert_input(raw_input):
 		pass
 
-	@staticmethod
+	@classmethod
 	@abstractmethod
-	def run_first(puzzle_input):
+	def run_first(cls, puzzle_input):
 		pass
 
-	@staticmethod
+	@classmethod
 	@abstractmethod
-	def run_second(puzzle_input):
+	def run_second(cls, puzzle_input):
 		pass

@@ -10,13 +10,13 @@ class Day5(Day):
 	def convert_input(raw_input):
 		return [[int(n) for n in re.findall(r'\d+', line)] for line in raw_input.splitlines()]
 
-	@staticmethod
-	def run_first(puzzle_input):
-		return Day5.count_overlaps(puzzle_input, False)
+	@classmethod
+	def run_first(cls, puzzle_input):
+		return cls.count_overlaps(puzzle_input, False)
 
-	@staticmethod
-	def run_second(puzzle_input):
-		return Day5.count_overlaps(puzzle_input, True)
+	@classmethod
+	def run_second(cls, puzzle_input):
+		return cls.count_overlaps(puzzle_input, True)
 
 	@staticmethod
 	def count_overlaps(line_data, include_diagonals: bool):

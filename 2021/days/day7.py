@@ -8,13 +8,13 @@ class Day7(Day):
 	def convert_input(raw_input):
 		return [int(n) for n in raw_input.split(',')]
 
-	@staticmethod
-	def run_first(puzzle_input):
+	@classmethod
+	def run_first(cls, puzzle_input):
 		target_position = median_low(puzzle_input)
 		return sum(abs(x - target_position) for x in puzzle_input)
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		lower_bound = min(puzzle_input)
 		upper_bound = max(puzzle_input)
 

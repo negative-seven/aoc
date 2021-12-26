@@ -13,8 +13,8 @@ class Day10(Day):
 	def convert_input(raw_input):
 		return raw_input.splitlines()
 
-	@staticmethod
-	def run_first(puzzle_input):
+	@classmethod
+	def run_first(cls, puzzle_input):
 		BRACKET_SCORES = {
 			')': 3,
 			']': 57,
@@ -23,14 +23,14 @@ class Day10(Day):
 		}
 
 		score = 0
-		for error_type, error_data in Day10.get_errors(puzzle_input):
+		for error_type, error_data in cls.get_errors(puzzle_input):
 			if error_type == BracketErrorType.LINE_CORRUPTED:
 				score += BRACKET_SCORES[error_data]
 
 		return score
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		BRACKET_SCORES = {
 			')': 1,
 			']': 2,
@@ -39,7 +39,7 @@ class Day10(Day):
 		}
 
 		scores = []
-		for error_type, error_data in Day10.get_errors(puzzle_input):
+		for error_type, error_data in cls.get_errors(puzzle_input):
 			if error_type == BracketErrorType.LINE_INCOMPLETE:
 				scores.append(sum(BRACKET_SCORES[b] * (5 ** i) for i, b in enumerate(error_data)))
 

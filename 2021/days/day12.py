@@ -14,12 +14,12 @@ class Day12(Day):
 			adjacent_caves[b].add(a)
 		return dict(adjacent_caves)
 
-	@staticmethod
-	def run_first(puzzle_input):
-		return Day12.count_paths(puzzle_input, lambda path, cave: cave.isupper() or cave not in path)
+	@classmethod
+	def run_first(cls, puzzle_input):
+		return cls.count_paths(puzzle_input, lambda path, cave: cave.isupper() or cave not in path)
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		def proceed_condition(path: List[str], cave: str):
 			small_caves = Counter(c for c in path + [cave] if c.islower())
 			if small_caves['start'] > 1:
@@ -27,7 +27,7 @@ class Day12(Day):
 			counts = [count for value, count in small_caves.most_common()]
 			return len(counts) <= 1 or (counts[0] <= 2 and counts[1] <= 1)
 
-		return Day12.count_paths(puzzle_input, proceed_condition)
+		return cls.count_paths(puzzle_input, proceed_condition)
 
 	@staticmethod
 	def count_paths(adjacency_dict, proceed_condition: Callable[[List[str], str], bool]):

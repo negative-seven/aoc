@@ -36,8 +36,8 @@ class Day4(Day):
 			'board_numbers': boards,
 		}
 
-	@staticmethod
-	def run_first(puzzle_input):
+	@classmethod
+	def run_first(cls, puzzle_input):
 		boards = [BingoBoard(b) for b in puzzle_input['board_numbers']]
 		for rolled_number in puzzle_input['rolled_numbers']:
 			for board in boards:
@@ -45,8 +45,8 @@ class Day4(Day):
 				if board.has_bingo():
 					return board.get_score()
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		boards = [BingoBoard(b) for b in puzzle_input['board_numbers']]
 		for rolled_number in puzzle_input['rolled_numbers']:
 			for board in boards:

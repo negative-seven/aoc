@@ -10,17 +10,17 @@ class Day11(Day):
 	def convert_input(raw_input):
 		return [[int(n) for n in row] for row in raw_input.splitlines()]
 
-	@staticmethod
-	def run_first(puzzle_input):
+	@classmethod
+	def run_first(cls, puzzle_input):
 		cells = copy.deepcopy(puzzle_input)
-		return sum(Day11.run_step(cells) for _ in range(100))
+		return sum(cls.run_step(cells) for _ in range(100))
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		cells = copy.deepcopy(puzzle_input)
 		cell_count = sum(len(row) for row in cells)
 		for step in itertools.count(start=1):
-			if Day11.run_step(cells) == cell_count:
+			if cls.run_step(cells) == cell_count:
 				return step
 
 	@staticmethod

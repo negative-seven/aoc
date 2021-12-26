@@ -8,8 +8,8 @@ class Day2(Day):
 		pairs = zip(iterator, iterator)
 		return [(x, int(y)) for x, y in pairs]
 
-	@staticmethod
-	def run_first(puzzle_input):
+	@classmethod
+	def run_first(cls, puzzle_input):
 		position = 0
 		depth = 0
 		for command, distance in puzzle_input:
@@ -21,8 +21,8 @@ class Day2(Day):
 				depth -= distance
 		return position * depth
 
-	@staticmethod
-	def run_second(puzzle_input):
+	@classmethod
+	def run_second(cls, puzzle_input):
 		position = 0
 		depth = 0
 		aim = 0
